@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const passport = require("passport");
+
+const users = require("./routes/api/users");
 
 const app = express();
 
@@ -14,7 +17,19 @@ app.use(bodyParser.json());
 
 // MongoDB connection 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(MONGODB_URI);
+mongoose
+    .connect(MONGODB_URI, { useNewUrlParser: true })
+    .then(() => console.log("Mongo successfully connected."))
+    .catch((err) => console.log(err));
+
+// Passport.js middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport")(passport);
+
+// Routes
+app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
