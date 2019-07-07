@@ -9,7 +9,7 @@ class Landing extends Component {
                     <div className="col s12 center-align">
                         <h4><b>Welcome to </b><span className="brand-logo">xylo</span></h4>
                         <p className="flow-text grey-text text-darken-1">
-                            All of the shows in Philadelphia you care about.
+                            All of the Philly music you care about.
                         </p>
                         <br />
                         <div className="col s6">
