@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
-const API = require("../../client/src/utils/API");
+const usersController = require("../../controllers/usersController");
 
 // Load input validation files
 const validateRegInput = require("../../validation/register");
@@ -13,39 +13,41 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models");
 
 // @route // POST api/users/register
-router.post("/api/users/register", (req, res) => {
-    // Form validation using imported validateRegInput function
-    const { errors, isValid } = validateRegInput(req.body);
+router
+    .route("/api/users/register")
+    .post((req, res) => {
+        // Form validation using imported validateRegInput function
+        const { errors, isValid } = validateRegInput(req.body);
 
-    // Check validation
-    if (!isValid) {
-        return res.status(400).json(errors);
-    }
-
-    User.findOne({ email: req.body.email }).then(user => {
-        if (user) {
-            return res.status(400).json({ email: "User with this email already exists." });
-        } else {
-            const newUser = new User({
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                username: req.body.username,
-                email: req.body.email,
-                password: req.body.password
-            });
-            // Hash password with bcrypt before saving in database
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(newUser.password, salt, (err, hash) => {
-                    if (err) throw err;
-                    newUser.password = hash;
-                    API.saveUser(newUser)
-                        .then(newUser => res.json(newUser))
-                        .catch(err => console.log(err));
-                });
-            });
+        // Check validation
+        if (!isValid) {
+            return res.status(400).json(errors);
         }
+
+        User.findOne({ email: req.body.email }).then(user => {
+            if (user) {
+                return res.status(400).json({ email: "User with this email already exists." });
+            } else {
+                const newUser = new User({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: req.body.password
+                });
+                // Hash password with bcrypt before saving in database
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(newUser.password, salt, (err, hash) => {
+                        if (err) throw err;
+                        newUser.password = hash;
+                        usersController.create(newUser)
+                            .then(newUser => res.json(newUser))
+                            .catch(err => console.log(err));
+                    });
+                });
+            }
+        });
     });
-});
 
 
 // @route // POST api/users/login
