@@ -2,8 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-
-const users = require("./routes/api/users");
+const routes = require("./routes/api/users");
 
 const app = express();
 
@@ -14,6 +13,9 @@ app.use(
     })
 );
 app.use(bodyParser.json());
+
+// Add routes, both API and view
+app.use(routes);
 
 // MongoDB connection 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
@@ -27,9 +29,6 @@ app.use(passport.initialize());
 
 // Passport config
 require("./config/passport")(passport);
-
-// Routes
-app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 

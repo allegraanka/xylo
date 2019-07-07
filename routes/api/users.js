@@ -3,17 +3,17 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const API = require("../../client/src/utils/API");
 
 // Load input validation files
 const validateRegInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
 // Load User model
-const User = require("../../models/User");
-
+const User = require("../../models");
 
 // @route // POST api/users/register
-router.post("/register", (req, res) => {
+router.post("/api/users/register", (req, res) => {
     // Form validation using imported validateRegInput function
     const { errors, isValid } = validateRegInput(req.body);
 
@@ -38,9 +38,8 @@ router.post("/register", (req, res) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     if (err) throw err;
                     newUser.password = hash;
-                    newUser
-                        .save()
-                        .then(user => res.json(user))
+                    API.saveUser(newUser)
+                        .then(newUser => res.json(newUser))
                         .catch(err => console.log(err));
                 });
             });

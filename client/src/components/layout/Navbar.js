@@ -12,18 +12,29 @@ class Navbar extends Component {
                             className="col s5 brand-logo left black-text">
                             <code>xylo</code>
                         </Link>
-                        <div className="col s5 right black-text">
-                            <Link
-                                to="/login"
-                                className="col s5 black-text">
-                                Log in
-                            </Link> |  
-                            <Link
-                                to="/register"
-                                className="col s5 black-text">
-                                Sign up
-                            </Link>
-                        </div>
+                        <ul className="col s5 right black-text">
+                            <li>
+                                <Link
+                                    to="/about"
+                                    className="col s5 black-text">
+                                    About
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/login"
+                                    className="col s5 black-text">
+                                    Log in
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/register"
+                                    className="col s5 black-text">
+                                    Sign up
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </nav>
             </div>

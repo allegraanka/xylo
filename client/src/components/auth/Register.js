@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
 
 class Register extends Component {
     constructor() {
@@ -30,6 +31,11 @@ class Register extends Component {
             password2: this.state.password2
         };
         console.log(newUser);
+        API.saveUser({
+            newUser
+        })
+        .then(res => res.json({ newUser : true }))
+        .catch(err => console.log(err));
     };
 
     render() {
