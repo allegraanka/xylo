@@ -5,7 +5,7 @@ import Landing from "./components/layout/Landing";
 import About from "./components/layout/About";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import MyComponent from "./components/layout/Music";
+import Music from "./components/layout/Music";
 
 class App extends Component {
   render() {
@@ -14,9 +14,9 @@ class App extends Component {
         <div className="xylo-app">
           <Route exact path="/" component={Landing} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/music" component={Music} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <MyComponent />
         </div>
       </Router>
     );

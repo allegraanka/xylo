@@ -1,0 +1,13 @@
+/* music component styles */
+
+.music-container {
+    width: 50%;
+    margin: auto;
+}
+
+.list-item {
+    padding: 2%;
+    margin: 2%;
+}
+
+/* end music component styles */

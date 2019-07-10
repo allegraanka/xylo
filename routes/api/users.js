@@ -10,11 +10,11 @@ const validateRegInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
 // Load User model
-const User = require("../../models");
+const db = require("../../models");
 
 // @route // POST api/users/register
 router
-    .route("/api/users/register")
+    .route("/register")
     .post((req, res) => {
         // Form validation using imported validateRegInput function
         const { errors, isValid } = validateRegInput(req.body);
@@ -24,24 +24,29 @@ router
             return res.status(400).json(errors);
         }
 
-        User.findOne({ email: req.body.email }).then(user => {
+        db.User.findOne({ email: req.body.email }, function(err, user) {
             if (user) {
+                console.log(user);
                 return res.status(400).json({ email: "User with this email already exists." });
             } else {
-                const newUser = new User({
+                const newUser = {
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,
                     username: req.body.username,
                     email: req.body.email,
                     password: req.body.password
-                });
+                };
+                console.log(`this is my New User: ${newUser}`);
                 // Hash password with bcrypt before saving in database
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if (err) throw err;
                         newUser.password = hash;
-                        usersController.create(newUser)
-                            .then(newUser => res.json(newUser))
+                        db.User.create(newUser)
+                            .then(newUser => {
+                                console.log(`successfully created new user: ${newUser}`);
+                                res.json(newUser)
+                            })
                             .catch(err => console.log(err));
                     });
                 });

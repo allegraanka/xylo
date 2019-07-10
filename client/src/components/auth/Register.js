@@ -32,9 +32,7 @@ class Register extends Component {
             password2: this.state.password2
         };
         console.log(newUser);
-        API.saveUser({
-            newUser
-        })
+        API.saveUser(newUser)
         .then(res => res.json(newUser))
         .catch(err => console.log(err));
     };

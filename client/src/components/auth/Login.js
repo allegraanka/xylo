@@ -30,7 +30,7 @@ class Login extends Component {
         return (
             <>
                 <div className="hello-again">
-                    <h1>Hello again.</h1>
+                    <h1>We're glad you're back.</h1>
                 </div>
                 <div className="container">
                     <div style={{ marginTop: "4rem" }} className="row">
@@ -42,7 +42,7 @@ class Login extends Component {
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                 <h4><b>Log in</b> here.</h4>
                                 <p className="grey-text text-darken-1">
-                                    Don't have an account? <Link to="/register">Sign up now.</Link>
+                                    Don't have an account? <Link to="/register">Sign up!</Link>
                                 </p>
                             </div>
                             <form noValidate onSubmit={this.onSubmit}>
