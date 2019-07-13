@@ -15,7 +15,11 @@ module.exports = {
     },
     // Saves a user to the database
     saveUser: function (userData) {
-        console.log(userData.email);
+        console.log(`Saved user: ${userData.email}`);
         return axios.post("/register", userData);
+    },
+    loginUser: function(userData) {
+        return axios.post("/login", userData);
     }
+
 };

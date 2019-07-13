@@ -1,6 +1,7 @@
 import React from "react";
 import "./Layout.css";
 
+
 class Music extends React.Component {
     constructor(props) {
         super(props);
@@ -26,15 +27,42 @@ class Music extends React.Component {
     //     }
     // };
 
+    getArtistId() {
+        const api_key = "bH8TAIOODciAe88J";
+        let artist = "Japanese Breakfast";
+        fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${api_key}&query=${artist}`)
+        .then(res => res.json())
+        .then(
+            (result) => {
+                console.log(result.resultsPage.results.artist[0].displayName);
+                this.setState({
+                    isLoaded: true,
+                    items: result.resultsPage.results.artist
+                });
+                // console.log(`items: ${this.items}`);
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            }
+            )
+        }
+    
     getShows() {
-        fetch("https://rest.bandsintown.com/artists/japanesebreakfast/events?app_id=codingbootcamp")
+        const api_key = "bH8TAIOODciAe88J";
+        let artist = "Japanese Breakfast";
+        fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${api_key}&query=${artist}`)
             .then(res => res.json())
             .then(
                 (result) => {
+                    console.log(result.resultsPage.results.artist[0].displayName);
                     this.setState({
                         isLoaded: true,
-                        items: result
+                        items: result.resultsPage.results.artist
                     });
+                    // console.log(`items: ${this.items}`);
                 },
                 (error) => {
                     this.setState({
@@ -61,15 +89,7 @@ class Music extends React.Component {
                     <h1>Upcoming Shows</h1>
                     <div className="music-item-wrapper">
                         <ul>
-                            {items.map(item => (
-                                <li className="list-item">
-                                    <h3>{item.lineup}</h3>
-                                    <h5>{item.datetime}</h5>
-                                    <p><b>Venue: </b>{item.venue.name}</p>
-                                    <p><b>Location: </b> {item.venue.city}, {item.venue.region} {item.venue.country}</p>
-                                    <p>{item.offers[0].type} {item.offers[0].status}!</p>
-                                </li>
-                            ))}
+                            <h3>{items[0].displayName}</h3>
                         </ul>
                     </div>
                 </div>

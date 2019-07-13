@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const routes = require("./routes/api/users");
 
+require('dotenv').config();
+
 const app = express();
 
 // Body parser middleware set-up
