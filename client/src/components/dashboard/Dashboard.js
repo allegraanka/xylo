@@ -3,45 +3,42 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
+import Music from "../layout/Music";
 import Navbar from "../layout/Navbar";
-import ArtistSearch from "../search-fields/ArtistSearch";
 
 class Dashboard extends Component {
-  onLogoutClick = e => {
-    e.preventDefault();
-    this.props.logoutUser();
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: "Dashboard"
+    }
+
+    this.onLogoutClick = e => {
+      e.preventDefault();
+      this.props.logoutUser();
+    };
+
+    this.handlePageChange = page => {
+      this.setState({ currentPage: page });
+    };
+  }
+
     render() {
-        const { user } = this.props.auth;
+        const { user, isAuthenticated } = this.props.auth;
         return (
             <>
-                <Navbar />
-                <div style={{ height: "75vh" }} className="container valign-wrapper">
-                    <div className="row">
-                        <div className="col s12 center-align">
-                            <h4>
-                            <b>Hi,</b> {user.username.split(" ")[0]}
-                            <p className="flow-text grey-text text-darken-1">
-                                Welcome to your {" "}
-                                <span style={{ fontFamily: "monospace" }}>xylo</span> dashboard
-                            </p>
-                            </h4>
-                            <button
-                            style={{
-                                width: "150px",
-                                borderRadius: "3px",
-                                letterSpacing: "1.5px",
-                                marginTop: "1rem"
-                            }}
-                            onClick={this.onLogoutClick}
-                            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                            >
-                            Logout
-                            </button>
-                        </div>
-                        <ArtistSearch />
-                    </div>
+              <Navbar 
+                isLoggedIn={isAuthenticated}
+                onLogoutClick={this.onLogoutClick}
+              />
+              <div class="row">
+                <div className="col s12 m4 l2">
+                  <h4>
+                    <b>Hi,</b> {user.username.split(" ")[0]}.
+                  </h4>
                 </div>
+              </div>
+              <Music />
             </>
         );
     }

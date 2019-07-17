@@ -21,5 +21,4 @@ module.exports = {
     loginUser: function(userData) {
         return axios.post("/login", userData);
     }
-
 };

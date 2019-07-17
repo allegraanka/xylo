@@ -108,13 +108,13 @@ class Login extends Component {
                                 <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                     <button
                                         style={{
-                                            width: "150px",
+                                            width: "125px",
                                             borderRadius: "3px",
                                             letterSpacing: "1.5px",
                                             marginTop: "1rem"
                                         }}
                                         type="submit"
-                                        className="btn btn-large waves-effect waves-light hoverable black white-text accent-3"
+                                        className="btn waves-effect waves-light hoverable black white-text accent-3"
                                     >
                                         Log in
                                     </button>
