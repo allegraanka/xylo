@@ -12,47 +12,47 @@ function Navbar(props) {
                         className="col s5 brand-logo left black-text">
                         <code>xylo</code>
                     </Link>
+                    {props.isLoggedIn ? (
+                        <div className="col right s12">
+                            <button
+                                style={{
+                                    width: "125px",
+                                    borderRadius: "3px",
+                                    letterSpacing: "1.5px",
+                                    marginTop: "1rem"
+                                }}
+                                onClick={props.onLogoutClick}
+                                className="btn waves-effect waves-light hoverable black white-text accent-3"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    ) : (
+                            <ul className="col s5 right black-text">
+                                <li>
+                                    <Link
+                                        to="/about"
+                                        className="col s5 black-text">
+                                        About
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/login"
+                                        className="col s5 black-text">
+                                        Log in
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/register"
+                                        className="col s5 black-text">
+                                        Sign up
+                                    </Link>
+                                </li>
+                            </ul>
+                        )}  
                 </div>
-                {props.isLoggedIn ? (
-                    <div className="col right s12">
-                        <button
-                            style={{
-                                width: "125px",
-                                borderRadius: "3px",
-                                letterSpacing: "1.5px",
-                                marginTop: "1rem"
-                            }}
-                            onClick={props.onLogoutClick}
-                            className="btn waves-effect waves-light hoverable black white-text accent-3"
-                        >
-                            Logout
-                        </button>
-                    </div>
-                ) : (
-                    <ul className="col s5 right black-text">
-                        <li>
-                            <Link
-                                to="/about"
-                                className="col s5 black-text">
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="/login"
-                                className="col s5 black-text">
-                                Log in
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="/register"
-                                className="col s5 black-text">
-                                Sign up
-                            </Link>
-                        </li>
-                    </ul>
-                )}  
             </nav>
         </div>
     );
