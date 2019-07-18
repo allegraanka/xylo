@@ -25,7 +25,7 @@ function Navbar(props) {
                                     onClick={props.onLogoutClick}
                                     className="btn logout-btn waves-effect waves-light hoverable accent-3"
                                 >
-                                    Logout
+                                    logout
                             </button>
                             </div>
                             ) : (
@@ -34,21 +34,21 @@ function Navbar(props) {
                                         <Link
                                             to="/about"
                                             className="col s5 black-text">
-                                            About
+                                            about
                                         </Link>
                                     </li>
                                     <li>
                                         <Link
                                             to="/login"
                                             className="col s5 black-text">
-                                            Log in
+                                            log in
                                         </Link>
                                     </li>
                                     <li>
                                         <Link
                                             to="/register"
                                             className="col s5 black-text">
-                                            Sign up
+                                            sign up
                                         </Link>
                                     </li>
                                 </ul>
