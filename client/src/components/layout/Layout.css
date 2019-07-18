@@ -1,14 +1,41 @@
-/* landing page styles */
-/* body {
-    background: url("../../images/xylo-landing.jpg") center no-repeat;
-    background-size: cover;
-    height: 100%;
-} */
 
-.landing-logo {
-    font-size: 4.8rem;
-    opacity: 0.8;
-    /* color: white; */
+/* landing page styles */
+body {
+    background: url("../../images/xylo-landing.jpg") center no-repeat fixed;
+    background-size: cover;
+    background-color: #0B0C10;
+    background-blend-mode: overlay;
+    height: 100%;
+}
+
+.landing-logo,
+.about-header {
+    font-size: 2rem;
+    color: #C5C6C7;
+}
+
+.xylo {
+    font-size: 10rem;
+    color: #66FCF1;
+}
+
+.subtext {
+    color: #C5C6C7;
+}
+
+.valign-wrapper {
+    margin-top: 15%;
+}
+
+.btn {
+    background-color: transparent;
+    border: 1px solid #66FCF1;
+}
+
+.logout-btn {
+    background-color: #0B0C10;
+    color: #66FCF1;
+    border: 1px solid #45A29E;
 }
 
 /* end landing page styles */
@@ -26,3 +53,37 @@
 }
 
 /* end music component styles */
+
+/* show component styles */
+
+.show-card {
+    padding: 2%;
+    margin-bottom: 5%;
+    background-color: #0B0C10;
+    color: #C5C6C7;
+    border-radius: 25px;
+    border: 3px solid #45A29E;
+}
+
+.show-display-name {
+    color: #66FCF1;
+}
+
+/* end show component styles */
+
+/* dashboard styles */
+
+.dashboard-greeting,
+.upcoming-shows-title {
+    color: #C5C6C7;
+}
+
+/* end dashboard styles */
+
+/* about styles */
+
+.about-para {
+    color: #C5C6C7;
+}
+
+/* end about styles */

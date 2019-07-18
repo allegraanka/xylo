@@ -12,9 +12,9 @@ class Landing extends Component {
                 <div className="container valign-wrapper">
                     <div className="row">
                         <div className="col s12 center-align">
-                            <h4 className="landing-logo"><b>Welcome to </b><span className="brand-logo">xylo</span></h4>
+                            <h4 className="landing-logo"><b>welcome to </b><span className="xylo">xylo</span></h4>
                             <p className="flow-text subtext">
-                                All of the Philly music you care about.
+                                all of the philly music you care about
                             </p>
                             <br />
                             <div className="col s6">
@@ -25,7 +25,7 @@ class Landing extends Component {
                                         borderRadius: "3px",
                                         letterSpacing: "1.5px"
                                     }}
-                                    className="btn waves-effect waves-light hoverable black white-text accent-3"
+                                    className="btn waves-effect waves-light hoverable accent-3"
                                     >
                                     Sign up
                                 </Link>
@@ -38,7 +38,7 @@ class Landing extends Component {
                                         borderRadius: "3px",
                                         letterSpacing: "1.5px"
                                     }}
-                                    className="btn waves-effect waves-light hoverable black white-text accent-3"
+                                    className="btn waves-effect waves-light hoverable accent-3"
                                     >
                                     Log in
                                 </Link>
