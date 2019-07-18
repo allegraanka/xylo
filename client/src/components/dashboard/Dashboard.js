@@ -5,6 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 
 import Music from "../layout/Music";
 import Navbar from "../layout/Navbar";
+import "../layout/Layout.css";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Dashboard extends Component {
               />
               <div class="row">
                 <div className="col s12 m4 l2">
-                  <h4>
+                  <h4 className="dashboard-greeting">
                     <b>Hi,</b> {user.username.split(" ")[0]}.
                   </h4>
                 </div>
