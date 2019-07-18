@@ -6,3 +6,31 @@
 .logo-font {
     letter-spacing: 1.2;
 }
+
+.hello-again,
+.login-font,
+.signin-font,
+.welcome-message {
+    color: #66FCF1;
+}
+
+.orange {
+    color: #eb9550;
+}
+
+.link-component {
+    color: #C5C6C7;
+}
+
+.link-component:hover {
+    color: #eb9550;
+}
+
+input {
+    color: white;
+}
+
+.reg-container,
+.login-container {
+    margin-bottom: 10%;
+}

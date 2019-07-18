@@ -57,17 +57,17 @@ class Login extends Component {
                 <div className="hello-again">
                     <h1>Glad you're back.</h1>
                 </div>
-                <div className="container">
-                    <div style={{ marginTop: "4rem" }} className="row">
+                <div className="container login-container">
+                    <div style={{ marginTop: "3rem" }} className="row">
                         <div className="col s8 offset-s2">
-                            <Link to="/" className="btn-flat waves-effect">
+                            <Link to="/" className="btn-flat waves-effect link-component">
                                 <i className="material-icons left">keyboard_backspace</i>
                                 Home
                             </Link>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                                <h4><b>Log in</b> here.</h4>
-                                <p className="grey-text text-darken-1">
-                                    Don't have an account? <Link to="/register">Sign up!</Link>
+                                <h4 className="login-font"><b>Log in</b> here.</h4>
+                                <p className="grey-text">
+                                    Don't have an account? <Link to="/register" className="link-component">Sign up!</Link>
                                 </p>
                             </div>
                             <form noValidate onSubmit={this.onSubmit}>
@@ -114,7 +114,7 @@ class Login extends Component {
                                             marginTop: "1rem"
                                         }}
                                         type="submit"
-                                        className="btn waves-effect waves-light hoverable black white-text accent-3"
+                                        className="btn waves-effect waves-light hoverable transparent white-text accent-3"
                                     >
                                         Log in
                                     </button>
