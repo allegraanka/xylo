@@ -59,7 +59,7 @@ class Login extends Component {
         return (
             <>
                 <div className="hello-again">
-                    <h1>Glad you're back.</h1>
+                    <h1>welcome back</h1>
                 </div>
                 <div className="container login-container">
                     <div style={{ marginTop: "3rem" }} className="row">
@@ -69,7 +69,7 @@ class Login extends Component {
                                 Home
                             </Link>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                                <h4 className="login-font"><b>Log in</b> here.</h4>
+                                <h4 className="login-font">sign in</h4>
                                 <p className="grey-text">
                                     Don't have an account? <Link to="/register" className="link-component">Sign up!</Link>
                                 </p>
@@ -120,7 +120,7 @@ class Login extends Component {
                                         type="submit"
                                         className="btn waves-effect waves-light hoverable transparent white-text accent-3"
                                     >
-                                        Log in
+                                        Sign in
                                     </button>
                                     <button
                                         style={{
@@ -130,7 +130,7 @@ class Login extends Component {
                                             marginTop: "1rem"
                                         }}
                                         onClick={signInWithGoogle}
-                                        className="btn waves-effect waves-light hoverable transparent white-text accent-3"
+                                        className="btn waves-effect waves-light hoverable transparent white-text accent-3 google-sign-in"
                                     >
                                         Sign in w/ Google
                                     </button>

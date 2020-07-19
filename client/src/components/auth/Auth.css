@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .welcome-message,
 .hello-again {
     margin: 10%;
@@ -33,4 +37,9 @@ input {
 .reg-container,
 .login-container {
     margin-bottom: 10%;
+}
+
+button.google-sign-in {
+    background-color: #4285f4 !important;
+    margin-left: 20px;
 }

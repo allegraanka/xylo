@@ -66,16 +66,16 @@ class Register extends Component {
         return(
             <>
                 <div className="welcome-message">
-                    <h1>Welcome to <span className="logo-font">xylo</span>.</h1>
+                    <h1>welcome to xylo</h1>
                 </div>
                 <div className="container reg-container">
                     <div style={{ marginTop: "3rem" }} className="row">
                         <div className="col s8 offset-s2">
                             <Link to="/" className="btn-flat waves-effect link-component"><i className="material-icons left">keyboard_backspace</i>Home</Link>
                             <div className="col s12">
-                            <h4 className="signin-font"><b>Sign up </b>here.</h4>
+                            <h4 className="signin-font">create an account</h4>
                                 <p className="grey-text">
-                                    Already have an account? <Link to="/login" className="link-component">Log in.</Link>
+                                    Already have an account? <Link to="/login" className="link-component">Sign in</Link>
                                 </p>
                             </div>
                             <form noValidate onSubmit={this.onSubmit}>
