@@ -19,13 +19,6 @@ app.use(bodyParser.json());
 // Add routes, both API and view
 app.use(routes);
 
-// MongoDB connection 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose
-    .connect(MONGODB_URI, { useNewUrlParser: true })
-    .then(() => console.log("Mongo successfully connected."))
-    .catch((err) => console.log(err));
-
 // Passport.js middleware
 app.use(passport.initialize());
 
