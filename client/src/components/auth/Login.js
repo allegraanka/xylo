@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+
 import "./Auth.css";
 
 class Login extends Component {
@@ -118,6 +122,18 @@ class Login extends Component {
                                     >
                                         Log in
                                     </button>
+                                    <button
+                                        style={{
+                                            width: "200px",
+                                            borderRadius: "3px",
+                                            letterSpacing: "1.5px",
+                                            marginTop: "1rem"
+                                        }}
+                                        onClick={signInWithGoogle}
+                                        className="btn waves-effect waves-light hoverable transparent white-text accent-3"
+                                    >
+                                        Sign in w/ Google
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -139,7 +155,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProps,
-  { loginUser }
-)(Login);
+export default connect(mapStateToProps, { loginUser })(Login);

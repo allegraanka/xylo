@@ -56,7 +56,7 @@ class Register extends Component {
         API.saveUser(newUser)
         .then(res => {
             console.log(`New user from register.js: ${newUser}`);
-            this.props.history.push("/login");
+            // this.props.history.push("/login");
         })
         .catch(err => console.log(err));
     };

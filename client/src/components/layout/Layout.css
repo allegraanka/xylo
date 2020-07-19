@@ -3,7 +3,7 @@
 body {
     background: url("../../images/xylo-landing.jpg") center no-repeat fixed;
     background-size: cover;
-    background-color: #0B0C10;
+    background-color: rgb(42, 43, 46);
     background-blend-mode: overlay;
     height: 100%;
 }
