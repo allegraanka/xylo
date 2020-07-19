@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
 import Music from "../layout/Music";
-import Navbar from "../layout/Navbar";
 import "../layout/Layout.css";
 
 class Dashboard extends Component {
@@ -28,10 +27,6 @@ class Dashboard extends Component {
         const { user, isAuthenticated } = this.props.auth;
         return (
             <>
-              <Navbar 
-                isLoggedIn={isAuthenticated}
-                onLogoutClick={this.onLogoutClick}
-              />
               <div class="row">
                 <div className="col s12 m4 l2">
                   <h4 className="dashboard-greeting">

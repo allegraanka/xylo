@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from '../../firebase/firebase.utils';
+
 import "./Layout.css";
 
-function Navbar(props) {
-    console.log(props);
+function Navbar({ currentUser }) {
     return (
         <div className="navbar-fixed navbar">
             <nav className="z-depth-0">
@@ -12,9 +13,9 @@ function Navbar(props) {
                         <Link
                             to="/"
                             className="col s5 brand-logo left black-text">
-                            <code>xylo</code>
+                            <div>xylo</div>
                         </Link>
-                        {props.isLoggedIn ? (
+                        { currentUser ? (
                             <div className="col right s12">
                                 <button
                                     style={{
@@ -22,11 +23,11 @@ function Navbar(props) {
                                         borderRadius: "3px",
                                         letterSpacing: "1.5px"
                                     }}
-                                    onClick={props.onLogoutClick}
+                                    onClick={() => auth.signOut()}
                                     className="btn logout-btn waves-effect waves-light hoverable accent-3"
                                 >
-                                    logout
-                            </button>
+                                    sign out
+                                </button>
                             </div>
                             ) : (
                                 <ul className="col s5 right black-text">
@@ -41,7 +42,7 @@ function Navbar(props) {
                                         <Link
                                             to="/login"
                                             className="col s5 black-text">
-                                            log in
+                                            sign in
                                         </Link>
                                     </li>
                                     <li>
